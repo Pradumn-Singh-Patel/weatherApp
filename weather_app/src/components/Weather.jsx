@@ -59,7 +59,6 @@ function Weather() {
             appid: appid,
           },
         });
-        console.log('data',response.data)
         setWeather({ data: response.data, loading: false, error: false });
       } catch (error) {
         setWeather({ ...weather, data: {}, error: true });
