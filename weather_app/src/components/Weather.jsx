@@ -59,6 +59,7 @@ function Weather() {
             appid: appid,
           },
         });
+        console.log('data',response.data)
         setWeather({ data: response.data, loading: false, error: false });
       } catch (error) {
         setWeather({ ...weather, data: {}, error: true });
@@ -126,6 +127,7 @@ function Weather() {
           <div className="des-wind">
             <p>{weather.data.weather[0].description.toUpperCase()}</p>
             <p>Wind Speed: {weather.data.wind.speed}m/s</p>
+            <p>Humidity: {weather.data.main.humidity}%</p>
           </div>
         </div>
       )}
