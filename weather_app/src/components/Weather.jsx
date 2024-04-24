@@ -45,13 +45,12 @@ function Weather() {
   };
 
   const search = async (event) => {
-    if (event.key === "Enter" || event.target.name==="img") {
+    if (event.key === "Enter" || event.target.name === "img") {
       event.preventDefault();
       setQuery("");
       setWeather({ ...weather, loading: true });
       const url = "https://api.openweathermap.org/data/2.5/weather";
       const appid = "f00c38e0279b7bc85480c3fe775d518c";
-      //console.log('Enter');
       try {
         const response = await axios.get(url, {
           params: {
@@ -83,6 +82,7 @@ function Weather() {
           onChange={(event) => setQuery(event.target.value)}
           onKeyPress={search}
         />
+        <img onClick={search} src={SearchIcon} name="img" alt="" />
       </div>
 
       {weather.loading && (
